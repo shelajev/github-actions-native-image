@@ -6,19 +6,16 @@ name: Build native image on self-hosted runner & upload it
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
 jobs:
   build:
 
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
     - name: Build with Maven
       run: mvn -Pnative-image package --file pom.xml
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
       with:
         name: primes
         path: target/org.shelajev.primes.primes.primesapplication
